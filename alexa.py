@@ -64,12 +64,12 @@ class IntentRequest(Request):
             return self.event["request"]["intent"]["slots"].keys()
         return None
 
-    def value_of_slot(self, slot_name) -> str:
+    def value_of_slot(self, slot_name: str) -> str:
         if self.has_slots() and slot_name in self.event["request"]["intent"]["slots"]:
             return self.event["request"]["intent"]["slots"][slot_name]["value"]
         return None
 
-    def id_value_of_slot(self, slot_name) -> str:
+    def id_value_of_slot(self, slot_name: str) -> str:
         if not self.has_slots() or slot_name not in self.event["request"]["intent"]["slots"]:
              return None
         
